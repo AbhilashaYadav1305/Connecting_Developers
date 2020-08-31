@@ -28,7 +28,7 @@ const Education = ({ education, deleteEducation }) => {
     return (
         <Fragment>
             <h2 className="my-2">
-                Experience Credentials
+                Education Credentials
             </h2>
             <table class="table">
                 <thead>

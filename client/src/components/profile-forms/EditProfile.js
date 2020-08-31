@@ -38,7 +38,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, history, ge
             youtube: loading || !profile.social ? '' : profile.social.youtube,
             linkedin: loading || !profile.social ? '' : profile.social.linkedin,
         });
-    }, [loading]);
+    }, [loading, getCurrentProfile]);
     const [displaySocialInputs, toggleSocialInputs] = useState(false);
 
     const {
