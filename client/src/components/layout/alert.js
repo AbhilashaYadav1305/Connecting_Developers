@@ -13,7 +13,7 @@ const Alert = ({ alerts }) => alerts !== null
 
 const mapStatetoProps = state => ({
     alerts: state.alert
-});//toget the state inside reducer alert from rootReducer we need state.alert
+});
 
 
 Alert.propTypes = {

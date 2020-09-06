@@ -22,7 +22,7 @@ export default function (state = initialState, action) {
     switch (type) {
         case USER_LOADED:
             return {
-                ...state, //State is immutable so make a copy of it.
+                ...state,
                 isAuthenticated: true,
                 loading: false,
                 user: payload
@@ -30,7 +30,6 @@ export default function (state = initialState, action) {
 
         case REGISTER_SUCCESS:
         case LOGIN_SUCCESS:
-            //set the token as payload.token, two params name of the component and where to take new value from.
             localStorage.setItem('token', payload.token);
             return {
                 ...state,

@@ -9,9 +9,9 @@ import {
 } from '../actions/types';
 
 const initialState = {
-    profile: null, //profile will have everything
+    profile: null,
     loading: true,
-    repos: [],        //these repos and profiles will automatically get populated by payload when population the  profile
+    repos: [],
     profiles: [],
     error: {}
 }

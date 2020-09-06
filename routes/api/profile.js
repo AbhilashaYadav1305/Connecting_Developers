@@ -20,7 +20,7 @@ router.get('/me', auth, async (req, res) => {
         const profile = await Profile.findOne({ user: req.user.id }).populate(
             'user',
             ['name', 'avatar']
-        );                       //user is the object id of the user in the profile model whiich references the user id in user model
+        );
         if (!profile) {
             return res.status(400).json({ msg: "There is no profile for the user." });
         }
@@ -96,7 +96,7 @@ router.post('/', [auth,
                 profile = await Profile.findOneAndUpdate(
                     { user: req.user.id },
                     { $set: profileFeilds },
-                    { new: true } //returns the document as it was before update was applied
+                    { new: true }
                 );
 
                 return res.json(profile);
@@ -236,7 +236,6 @@ router.delete('/experience/:exp_id', auth, async (req, res) => {
     try {
         const profile = await Profile.findOne({ user: req.user.id });
 
-        //Get remove index - Get the index to be removed from the list of items in profile.experience
         const removeIndex = profile.experience.map(item => item.id).indexOf(req.params.exp_id);
 
         profile.experience.splice(removeIndex, 1);
@@ -317,7 +316,6 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
     try {
         const profile = await Profile.findOne({ user: req.user.id });
 
-        //Get remove index - Get the index to be removed from the list of items in profile.education
         const removeIndex = profile.education.map(item => item.id).indexOf(req.params.edu_id);
 
         profile.education.splice(removeIndex, 1);

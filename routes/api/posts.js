@@ -111,14 +111,14 @@ router.delete('/:id', auth, async (req, res) => {
 // @route  Put api/posts/like/:id
 // @desc   Like a post
 // @access Private
-router.get('/like/:id', auth, async (req, res) => {
+router.put('/like/:id', auth, async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
 
         if (post.likes.filter(like => like.user.toString() === req.user.id).length > 0) {
             return res.status(400).json({ msg: 'Post already liked.' })
         }
-        post.likes.unshift({ user: req.user.id });   //params.id- liked id.  user.id- id logged in that likes params id
+        post.likes.unshift({ user: req.user.id });
 
         await post.save();
 
@@ -134,8 +134,7 @@ router.get('/like/:id', auth, async (req, res) => {
 // @route  PUT api/posts/unlike/:id
 // @desc   Remove a like
 // @access Private
-//pass post id input
-//this will automatically remove the current logged in users like due to it's structure
+
 router.put('/unlike/:id', auth, async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
@@ -159,10 +158,10 @@ router.put('/unlike/:id', auth, async (req, res) => {
     }
 });
 
-// @route  Put api/posts/comment/:id
+// @route  Post api/posts/comment/:id
 // @desc   Like a post
 // @access Private
-router.put('/comment/:id', [auth,
+router.post('/comment/:id', [auth,
     [
         check('text', 'Comment text is required')
             .not()

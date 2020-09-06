@@ -21,7 +21,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     const onSubmit = e => {
         e.preventDefault();
         if (password !== password2) {
-            //Can be used as a prop becuase of the connect method below.
+
             setAlert('Password do not match', 'danger');
         } else {
             register({ name, email, password });
