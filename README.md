@@ -1,7 +1,7 @@
 # Connecting_Developers
 An Application to connect with Developers worldwide, built using MERN stack technologies.
 
-#Features
+# Features
 - Model-View-Controller architecture .
 - FrontEnd built using ReactJs and glbal state management using Redux.
 - Backend built using NodeJs and ExpressJs. 
@@ -9,8 +9,8 @@ An Application to connect with Developers worldwide, built using MERN stack tech
 - REST api methods used to perform CRUD operations
 - Design is responsive to different screen sizes.
 
-#Setup Instructions
-#Add a default.json file in config folder with the following
+# Setup Instructions
+## Add a default.json file in config folder with the following
 ```
 {
   "mongoURI": "<your_mongoDB_Atlas_uri_with_credentials>",
@@ -19,16 +19,16 @@ An Application to connect with Developers worldwide, built using MERN stack tech
 }
 ```
 
-#Install server dependencies
+## Install server dependencies
 ```
 npm install
 ```
-#Install client dependencies
+## Install client dependencies
 ```
 cd client
 npm install
 ```
-#Run both Express & React from root
+## Run both Express & React from root
 ```
 npm run dev
 ```
